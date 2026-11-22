@@ -1,0 +1,23 @@
+{
+  "skill_name": "android-app-reverse",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "J'ai un dump.cs Unity IL2CPP, trouve la classe et le RVA de Camera.WorldToScreenPoint(Vector3) avec preuve.",
+      "expected_output": "Tableau contenant : Classe (ex: UnityEngine.Camera), RVA (hex, ex: 0x1A2B3C), Preuve (ligne exacte du dump.cs), Confiance (OK/DECALÉ). Doit obligatoirement utiliser l'outil de recherche de REA.",
+      "files": ["dump.cs"]
+    },
+    {
+      "id": 2,
+      "prompt": "Analyse cette APK: package, activité launcher, et indices de packer.",
+      "expected_output": "Package : com.xxx.yyy. Launcher : com.xxx.MainActivity. Packer : Jiagu (ou 'Aucun'). Preuve : sortie de `rea_call` avec `inspect-android-package`.",
+      "files": ["app.apk"]
+    },
+    {
+      "id": 3,
+      "prompt": "Convertis ce RVA libil2cpp.so en file offset et explique base/RVA/file offset.",
+      "expected_output": "RVA : 0xXXXX. File Offset : 0xYYYY. Explication : RVA est relatif à la base du module, File Offset est l'adresse dans le fichier .so. Doit utiliser `rva_to_offset.py` ou `readelf`.",
+      "files": ["libil2cpp.so"]
+    }
+  ]
+}
